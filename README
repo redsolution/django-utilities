@@ -1,0 +1,37 @@
+================
+django-utilities
+================
+
+Django common used utilities.
+
+Installation:
+=============
+
+1. Put ``utilities`` in to your ``INSTALLED_APPS`` in your ``settings.py`` within your django project.
+
+Usage:
+======
+
+ImagePreviewField:
+------------------
+
+Used to show image preview near ImageField.
+
+To use it in your models.py::
+
+	from utilities.fields import ImagePreviewFieldd
+
+	class MyModel(models.Model):
+		image = ImagePreviewField(upload_to='upload/')
+
+You can specify maximum width and height for the thumb::
+
+	class MyModel(models.Model):
+		image = ImagePreviewField(upload_to='upload/', thumb_size=(80, 80))
+
+
+If you have separated field with thumb for this image you can specify its name and told to use its real size::
+
+	class MyModel(models.Model):
+		thumb = models.ImageField(upload_to='thumb/')
+		image = ImagePreviewField(upload_to='upload/', thumb_field='thumb', thumb_size=None)
