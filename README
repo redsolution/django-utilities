@@ -35,3 +35,9 @@ If you have separated field with thumb for this image you can specify its name a
 	class MyModel(models.Model):
 		thumb = models.ImageField(upload_to='thumb/')
 		image = ImagePreviewField(upload_to='upload/', thumb_field='thumb', thumb_size=None)
+
+Dot is username:
+----------------
+
+By default this application will allow you to create users in admin with dot in there names.
+To disallow set ``ALLOW_DOT_IS_USERNAME`` to ``False`` in your ``settings.py``.  
