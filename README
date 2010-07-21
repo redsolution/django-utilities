@@ -41,3 +41,17 @@ Dot is username:
 
 By default this application will allow you to create users in admin with dot in there names.
 To disallow set ``ALLOW_DOT_IS_USERNAME`` to ``False`` in your ``settings.py``.  
+
+
+Local date template filter:
+--------------------------
+
+The ``date_local`` filter supposed to be used with Django 1.1 (1.2+ already has such feature ).
+Load filter with ``{% load utilities_tags %}`` and use it like date Django filter 
+(see date formatting: http://docs.djangoproject.com/en/1.1/ref/templates/builtins/#now)
+
+For example: ::
+
+	{{ entry.creation_date|date_local:"d F Y" }}
+
+Returns 01 Января 2010 for `ru` locale
