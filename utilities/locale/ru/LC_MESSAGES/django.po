@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-09 12:23+0600\n"
+"POT-Creation-Date: 2010-08-05 14:06+0600\n"
 "PO-Revision-Date: 2010-04-09 12:18+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,50 +16,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models.py:13
+#: templatetags/utilities_tags.py:8
 msgid " January"
 msgstr "Января"
 
-#: models.py:13
+#: templatetags/utilities_tags.py:8
 msgid " February"
 msgstr "Февраля"
 
-#: models.py:13
+#: templatetags/utilities_tags.py:8
 msgid " March"
 msgstr "Марта"
 
-#: models.py:13
+#: templatetags/utilities_tags.py:8
 msgid " April"
 msgstr "Апреля"
 
-#: models.py:13
+#: templatetags/utilities_tags.py:8
 msgid " May"
 msgstr "Мая"
 
-#: models.py:14
+#: templatetags/utilities_tags.py:9
 msgid " June"
 msgstr "Июня"
 
-#: models.py:14
+#: templatetags/utilities_tags.py:9
 msgid " July"
 msgstr "Июля"
 
-#: models.py:14
+#: templatetags/utilities_tags.py:9
 msgid " August"
 msgstr "Августа"
 
-#: models.py:14
+#: templatetags/utilities_tags.py:9
 msgid " September"
 msgstr "Сентября"
 
-#: models.py:14
+#: templatetags/utilities_tags.py:9
 msgid " October"
 msgstr "Октября"
 
-#: models.py:15
+#: templatetags/utilities_tags.py:10
 msgid " November"
 msgstr "Ноября"
 
-#: models.py:15
+#: templatetags/utilities_tags.py:10
 msgid " December"
 msgstr "Декабря"
