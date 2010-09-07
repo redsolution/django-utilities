@@ -6,3 +6,6 @@ class Make(BaseMake):
         super(Make, self).make()
         cms_settings = CMSSettings.objects.get_settings()
         cms_settings.render_to('settings.py', 'utilities/redsolutioncms/settings.pyt')
+
+make = Make()
+

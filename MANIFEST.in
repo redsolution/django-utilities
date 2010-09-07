@@ -1,2 +1,2 @@
-recursive-include utilities *.py
-recursive-include utilities *.html
+recursive-include utilities *
+exclude *.orig *.pyc
