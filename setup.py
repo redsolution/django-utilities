@@ -41,6 +41,6 @@ setup(
     zip_safe=False,
     long_description=open('README').read(),
     entry_points={
-        'redsolution_setup': ['utilities = utilities.redsolution_setup', ],
+        'redsolutioncms': ['utilities = utilities.redsolution_setup', ],
     }
 )
