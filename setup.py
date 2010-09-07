@@ -10,10 +10,10 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name="grandma.django-utilities",
+    name="redsolutioncms.django-utilities",
     version="0.1.0",
-    description=("Django common used utilities"
-        ), # " with GrandmaCMS integration"
+    description=("Django common used utilities" +
+        " with RedsolutionCMS integration"),
     license="LGPL",
     keywords="django utilities",
 
@@ -41,6 +41,6 @@ setup(
     zip_safe=False,
     long_description=open('README').read(),
     entry_points={
-#        'grandma_setup': ['trustedhtml = trustedhtml.grandma_setup', ],
+        'redsolution_setup': ['utilities = utilities.redsolution_setup', ],
     }
 )
