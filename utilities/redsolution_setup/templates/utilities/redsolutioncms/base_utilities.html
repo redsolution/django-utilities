@@ -1,0 +1,7 @@
+{% load redsolutioncms_tags %}{% start_block %} extends '{{ cms_settings.base_template }}' {% end_block %}
+{% raw %}
+{% block css %}
+    {{ block.super }}
+    {% if user.is_staff %}<style type="text/css" media="screen">a[href] { text-decoration: underline; } a { text-decoration: line-through; }</style>{% endif %}
+{% endblock css %}
+{% endraw %}

@@ -1,2 +1,2 @@
-# django-utilities
+# ------------  django-utilities ----------------
 INSTALLED_APPS += ['utilities']
