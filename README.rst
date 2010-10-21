@@ -2,7 +2,12 @@
 django-utilities
 ================
 
-Django common used utilities.
+A set of Django useful utilities.
+
+* ImageField with preview in admin interface
+* Override allows to create users with dot in username
+* Localized date filter
+* ConsoleException middleware
 
 Installation:
 =============
@@ -17,14 +22,14 @@ ImagePreviewField:
 
 Used to show image preview near ImageField.
 
-To use it in your models.py::
+To use it in your ``models.py`` ::
 
 	from utilities.fields import ImagePreviewFieldd
 
 	class MyModel(models.Model):
 		image = ImagePreviewField(upload_to='upload/')
 
-You can specify maximum width and height for the thumb::
+You can specify maximum width and height for the thumb ::
 
 	class MyModel(models.Model):
 		image = ImagePreviewField(upload_to='upload/', thumb_size=(80, 80))
@@ -44,14 +49,34 @@ To disallow set ``ALLOW_DOT_IS_USERNAME`` to ``False`` in your ``settings.py``.
 
 
 Local date template filter:
---------------------------
+---------------------------
 
 The ``date_local`` filter supposed to be used with Django 1.1 (1.2+ already has such feature ).
-Load filter with ``{% load utilities_tags %}`` and use it like date Django filter 
-(see date formatting: http://docs.djangoproject.com/en/1.1/ref/templates/builtins/#now)
+Load filter with ``{% load utilities_tags %}`` and use it like date `Django date filter`_ 
 
 For example: ::
 
 	{{ entry.creation_date|date_local:"d F Y" }}
 
-Returns 01 Января 2010 for `ru` locale
+Returns 01 Января 2010 for ``ru`` locale
+
+ConsoleException middleware:
+----------------------------
+
+Often you get annoyed when Django show Tracebacks like ::
+    
+    File "/home/mysite/django-mysite3/django/template/__init__.py", line
+    800, in render_node
+    return node.render(context)
+
+ConsoleException middleware prints original tracebacks in STDOUT. It is very helpful
+for debugging sometimes. 
+Use it **ONLY** in development mode!
+
+Classifiers:
+-------------
+
+`Utilities`_
+
+.. _`Django date filter`: http://docs.djangoproject.com/en/1.1/ref/templates/builtins/#now
+.. _`Utilities`: http://www.redsolutioncms.org/classifiers/utilities
