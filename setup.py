@@ -30,7 +30,7 @@ setup(
         'Development Status :: 3 - Alpha',
         'Framework :: Buildout',
         'Intended Audience :: Developers',
-        'License :: Freely Distributable',
+        'License :: OSI Approved :: GNU General Public License (GPL)',
         'Natural Language :: Russian',
         'Operating System :: Microsoft :: Windows',
         'Operating System :: Unix',
