@@ -80,6 +80,12 @@ To enable password reset form, set in your ``settings.py``::
 
     ENABLE_PASSWORD_RESET = True
 
+And include utilities urls into your urlconf::
+
+    urlpatterns += patterns('',
+        (r'^', include('utilities.urls')),
+    )
+
 You will get  link to password reset in users administration section under email
 field.
 When you reset password to some user,  all his or her active sessions will be 
