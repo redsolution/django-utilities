@@ -73,6 +73,20 @@ ConsoleException middleware prints original tracebacks in STDOUT. It is very hel
 for debugging sometimes. 
 Use it **ONLY** in development mode!
 
+Reset password form:
+--------------------
+
+To enable password reset form, set in your ``settings.py``::
+
+    ENABLE_PASSWORD_RESET = True
+
+You will get  link to password reset in users administration section under email
+field.
+When you reset password to some user,  all his or her active sessions will be 
+deleted, password will be set to unusable.
+The only way to login is follow link, provided in email.
+If user has no email, you will not able reset password for this user.
+
 Classifiers:
 -------------
 
