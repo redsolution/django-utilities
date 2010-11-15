@@ -44,7 +44,8 @@ class MoidfiedPasswordResetForm(PasswordResetForm):
 
 class ModifiedUserChangeForm(UserChangeForm):
     email = forms.EmailField(label=_("E-mail"), max_length=75,
-        help_text=_("<a href=\"reset/\">Reset password</a> for this user."), required=False)
+        help_text=_('<a href="%s">Reset password</a> for this user.' % 'reset/'),
+        required=False)
 
 class ResetPasswordMixin(object):
     '''
