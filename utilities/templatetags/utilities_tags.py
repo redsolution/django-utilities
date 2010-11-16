@@ -17,7 +17,7 @@ class DateFormatLocal(dateformat.DateFormat):
 
     def F(self):
         "Month, textual, long; e.g. 'January'"
-        return MONTHS[self.data.month]
+        return MONTHS[self.data.month - 1]
 
 
 def format(value, format_string):

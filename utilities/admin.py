@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib import admin
-from django.contrib import messages
 from django.contrib.sessions.models import Session
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserChangeForm, PasswordResetForm
@@ -13,7 +12,10 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from django.shortcuts import render_to_response, get_object_or_404
 from django.utils.html import escape
 from django.template import RequestContext
-
+try:
+    from django.contrib import messages
+except ImportError:
+    pass
 
 class MoidfiedPasswordResetForm(PasswordResetForm):
 
@@ -77,8 +79,12 @@ class ResetPasswordMixin(object):
             form = MoidfiedPasswordResetForm(request.POST)
             if form.is_valid():
                 new_user = form.save()
-                msg = ugettext('Password for user %s has been reseted.' % user)
-                messages.success(request, msg)
+                try:
+                    msg = ugettext('Password for user %s has been reseted.' % user)
+                    messages.success(request, msg)
+                except NameError:
+                    # there's no messages framework in Django 1.1
+                    pass
                 return HttpResponseRedirect('..')
         else:
             msg = ugettext('Password for user %s has been reseted.' % user)

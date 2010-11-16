@@ -100,3 +100,22 @@ Classifiers:
 
 .. _`Django date filter`: http://docs.djangoproject.com/en/1.1/ref/templates/builtins/#now
 .. _`Utilities`: http://www.redsolutioncms.org/classifiers/utilities
+
+
+History:
+--------
+
+0.1.0 (2010-11-04)
+```````````````````
+* Initial release
+
+0.1.1 (2010-11-15)
+``````````````````
+
+* Aded reset password form
+
+0.1.2 (2010-11-16)
+``````````````````
+
+* Bugfixes in ``date_local`` template filter
+* Fixed compability ``ResetPasswordForm`` in Django 1.1
