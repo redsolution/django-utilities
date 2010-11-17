@@ -30,3 +30,20 @@ class ImagePreviewField(models.ImageField):
             defaults['widget'] = ImagePreviewWidget(thumb_field=self.thumb_field, thumb_size=self.thumb_size)
 
         return super(ImagePreviewField, self).formfield(**defaults)
+
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([
+        (
+            [ImagePreviewField],
+            [],
+            {
+                "thumb_field": ["thumb_field", {"default": None}],
+                "thumb_size": ["thumb_size", {"default": (80, 80)}],
+            },
+        ),
+    ], [
+        "^utilities\.fields\.ImagePreviewField",
+    ])
+except ImportError:
+    pass
