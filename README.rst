@@ -93,6 +93,33 @@ deleted, password will be set to unusable.
 The only way to login is follow link, provided in email.
 If user has no email, you will not able reset password for this user.
 
+SplitDateField:
+---------------
+
+You can specify minimal and maximum date with attributes ``from_date`` (default
+``datetime.date(1930,01,01)``) and ``till_date`` (default ``datetime.date.today``)
+, they must have date type or be callable object. Also you may reverse order of 
+years with help of boolean attribute ``reverse`` (default False).
+
+If ``from_date=datetime.date(2007,01,01)``, ``till_date=datetime.date(2010,01,01)`` 
+and ``reverse=False``, then we obtain the sequence of years: 2007, 2008, 2009, 2010
+
+To use it in your ``models.py`` ::
+
+  from utilities.fields import SplitDateField
+  
+    class MyModel(models.Model):
+      date = SplitDateField(from_date=datetime.date(2008,10,01),
+        till_date=datetime.date.today, reverse=True)
+        
+To use  it in your ``forms.py`` ::
+
+  from utilities.fields import SplitDateFormField
+  
+    class MyForm(forms.Form)
+      date = SplitDateFormField(from_date=datetime.date(2008,10,01),
+        till_date=datetime.date.today, reverse=True)
+
 Classifiers:
 -------------
 
@@ -119,3 +146,8 @@ History:
 
 * Bugfixes in ``date_local`` template filter
 * Fixed compability ``ResetPasswordForm`` in Django 1.1
+
+0.1.3 (2010-11-23)
+``````````````````
+
+* Add ``SplitDateField``

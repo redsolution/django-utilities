@@ -33,7 +33,6 @@ class ImagePreviewField(models.ImageField):
 
         return super(ImagePreviewField, self).formfield(**defaults)
 
-
 try:
     from south.modelsinspector import add_introspection_rules
     add_introspection_rules([
@@ -50,6 +49,7 @@ try:
     ])
 except ImportError:
     pass
+
 #    SplitDateField
 EMPTY = [('', u'---')]
 DAYS = [(day, '%02d' % day) for day in xrange(1, 32)]
@@ -132,3 +132,9 @@ class SplitDateField(models.DateField):
         defaults.update(kwargs)
         return super(SplitDateField, self).formfield(from_date=self.from_date,
             till_date=self.till_date, reverse=self.reverse, ** defaults)
+
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ["^utilities\.fields\.SplitDateField"])
+except ImportError:
+    pass
