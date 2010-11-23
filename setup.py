@@ -16,7 +16,7 @@ setup(
     name="redsolutioncms.django-utilities",
     version=__import__('utilities').__version__,
     description=read('DESCRIPTION'),
-    license="LGPL",
+    license="GPLv3",
     keywords="django utilities",
 
     author="Alexander Ivanov",
