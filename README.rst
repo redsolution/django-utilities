@@ -120,6 +120,19 @@ To use  it in your ``forms.py`` ::
       date = SplitDateFormField(from_date=datetime.date(2008,10,01),
         till_date=datetime.date.today, reverse=True)
 
+
+Management commands:
+--------------------
+
+Since 0.1.4 few management commands added:
+
+**imagekit_recache**
+  Re-create cache for imagekit models. Command has --force option to delete old cache dir.
+
+**update_permissions**
+  Update permissions for installed models. Useful if you change permissions in project's lifecycle.
+
+
 Classifiers:
 -------------
 
@@ -151,3 +164,9 @@ History:
 ``````````````````
 
 * Add ``SplitDateField``
+
+0.1.4 (2012-02-01)
+```````````````````
+
+* Added management commands, wrapped ImagePreviewField IOError
+
