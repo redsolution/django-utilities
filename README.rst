@@ -133,6 +133,16 @@ Since 0.1.4 few management commands added:
   Update permissions for installed models. Useful if you change permissions in project's lifecycle.
 
 
+AJAX CRSF:
+----------
+
+Django CSRF protection (https://docs.djangoproject.com/en/dev/ref/contrib/csrf/#ajax) documentation
+ offer solution to set CSRF headers to ajax requests on site. That solution copied into utulities
+ script to avoid copy-paste.::
+
+    <script type="text/javascript" src="{{ STATIC_URL }}utilities/js/csrf.js" />
+
+
 Classifiers:
 -------------
 
@@ -170,3 +180,7 @@ History:
 
 * Added management commands, wrapped ImagePreviewField IOError
 
+0.1.5
+``````
+
+* Added Django's CSRF ajax script
