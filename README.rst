@@ -168,7 +168,7 @@ History:
 ``````````````````
 
 * Bugfixes in ``date_local`` template filter
-* Fixed compability ``ResetPasswordForm`` in Django 1.1
+* Fixed compatibility ``ResetPasswordForm`` in Django 1.1
 
 0.1.3 (2010-11-23)
 ``````````````````
