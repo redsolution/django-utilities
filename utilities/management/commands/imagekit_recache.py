@@ -7,11 +7,13 @@ from django.conf import settings
 from os.path import join
 import sys
 
-def progressbar(it, prefix = "", size = 60):
+
+def progressbar(it, prefix="", size=60):
     count = len(it)
     def _show(_i):
         x = int(size*_i/count)
-        sys.stdout.write("%s[%s%s] %i/%i\r" % (prefix, "#"*x, "."*(size-x), _i, count))
+        sys.stdout.write("%s[%s%s] %i/%i\r" % (prefix, "#"*x, "."*(size-x), _i,
+                                               count))
         sys.stdout.flush()
 
     _show(0)
@@ -28,29 +30,32 @@ class Command(BaseCommand):
     Usage: manage.py imagekit_gencache attachment.AttachemntImage [--force]
     '''
     option_list = BaseCommand.option_list + (
-        make_option('--force',
+        make_option(
+            '--force',
             action='store_true',
             dest='force',
             default=False,
-            help='Force delete cache directory'),
+            help='Force delete cache directory'
+        ),
     )
 
     def handle(self, *args, **options):
-        app_label, model_name =args[0].split('.')
+        app_label, model_name = args[0].split('.')
         model_cls = loading.get_model(app_label, model_name)
         ikspecs = model_cls._ik.specs
-        
         if options['force']:
             # Delete cache dir
-            print 'Forced remove previous cache dir: ', model_cls._ik.cache_dir,
+            print 'Forced remove previous cache dir: ', model_cls._ik.cache_dir
             try:
-                rmtree(join(settings.MEDIA_ROOT, model_cls._ik.cache_dir), ignore_errors=False)
+                rmtree(join(settings.MEDIA_ROOT, model_cls._ik.cache_dir),
+                       ignore_errors=False)
             except (IOError, OSError):
                 print '[Fail]'
             else:
                 print '[OK]'
 
         for spec in ikspecs:
-            for instance in progressbar(model_cls.objects.all(), "Pre-caching %s: " % spec.name(), 80):
+            for instance in progressbar(model_cls.objects.all(),
+                                        "Pre-caching %s: " % spec.name(), 80):
                 img = getattr(instance, spec.name())
                 getattr(img, 'url')

@@ -1,6 +1,7 @@
 from functools import wraps
-from django.template.context import Context
+from django.template.context import Context, RequestContext
 from django.shortcuts import render_to_response
+
 
 def private_context(f):
     """

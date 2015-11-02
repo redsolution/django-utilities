@@ -73,26 +73,6 @@ ConsoleException middleware prints original tracebacks in STDOUT. It is very hel
 for debugging sometimes. 
 Use it **ONLY** in development mode!
 
-Reset password form:
---------------------
-
-To enable password reset form, set in your ``settings.py``::
-
-    ENABLE_PASSWORD_RESET = True
-
-And include utilities urls into your urlconf::
-
-    urlpatterns += patterns('',
-        (r'^', include('utilities.urls')),
-    )
-
-You will get  link to password reset in users administration section under email
-field.
-When you reset password to some user,  all his or her active sessions will be 
-deleted, password will be set to unusable.
-The only way to login is follow link, provided in email.
-If user has no email, you will not able reset password for this user.
-
 SplitDateField:
 ---------------
 
@@ -142,16 +122,6 @@ Django CSRF protection (https://docs.djangoproject.com/en/dev/ref/contrib/csrf/#
 
     <script type="text/javascript" src="{{ STATIC_URL }}utilities/js/csrf.js" />
 
-
-Classifiers:
--------------
-
-`Utilities`_
-
-.. _`Django date filter`: http://docs.djangoproject.com/en/1.1/ref/templates/builtins/#now
-.. _`Utilities`: http://www.redsolutioncms.org/classifiers/utilities
-
-
 History:
 --------
 
@@ -184,3 +154,10 @@ History:
 ``````
 
 * Added Django's CSRF ajax script
+
+0.1.6 (2015-11-02)
+``````
+
+* Removed ImagePreviewField
+* Removed Dot is username: django 1.7 work with dots in user name
+* Removed Reset password form
