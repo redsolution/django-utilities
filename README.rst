@@ -4,8 +4,6 @@ django-utilities
 
 A set of Django useful utilities.
 
-* ImageField with preview in admin interface
-* Override allows to create users with dot in username
 * Localized date filter
 * ConsoleException middleware
 
@@ -16,37 +14,6 @@ Installation:
 
 Usage:
 ======
-
-ImagePreviewField:
-------------------
-
-Used to show image preview near ImageField.
-
-To use it in your ``models.py`` ::
-
-	from utilities.fields import ImagePreviewFieldd
-
-	class MyModel(models.Model):
-		image = ImagePreviewField(upload_to='upload/')
-
-You can specify maximum width and height for the thumb ::
-
-	class MyModel(models.Model):
-		image = ImagePreviewField(upload_to='upload/', thumb_size=(80, 80))
-
-
-If you have separated field with thumb for this image you can specify its name and told to use its real size::
-
-	class MyModel(models.Model):
-		thumb = models.ImageField(upload_to='thumb/')
-		image = ImagePreviewField(upload_to='upload/', thumb_field='thumb', thumb_size=None)
-
-Dot is username:
-----------------
-
-By default this application will allow you to create users in admin with dot in there names.
-To disallow set ``ALLOW_DOT_IS_USERNAME`` to ``False`` in your ``settings.py``.  
-
 
 Local date template filter:
 ---------------------------
